@@ -1,147 +1,224 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pares Xiter - Painel Full HS</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-</head>
-<body>
+/* --- 1. CONFIGURAÇÕES GERAIS E CORES --- */
+:root {
+    --vermelho: #FF0000;
+    --vermelho-neon: #ff2a2a;
+    --preto: #050505;
+    --cinza-card: #0d0d0d;
+    --branco: #ffffff;
+}
 
-    <header class="secao-hero" id="inicio">
-        <div class="container animar-entrada">
-            <div class="wrapper-logo">
-                <img src="photos/logo.png" alt="Logo Pares Xiter" class="logo-hero">
-            </div>
-            
-            <h1 class="titulo-principal">Transforme a sua <span class="destaque-vermelho">realidade hoje.</span></h1>
-            <p class="subtitulo">A qualidade que nenhuma sensi chega perto com a exclusividade que você merece. Não perca esta oportunidade única.</p>
-            
-            <a href="#produtos" class="icone-link-hero">
-                <i class="fa-solid fa-chevron-down"></i>
-            </a>
-        </div>
-    </header>
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
 
-    <section class="secao-sugestao" id="sugestao">
-        <div class="container animar-entrada">
-            <div class="caixa-pergunta">
-                <h2>Você está pronto para o <span class="destaque-vermelho">próximo nível?</span></h2>
-                <p>Imagine ter acesso ao melhor do mercado agora.</p>
-                <p>Nossa tecnologia foi desenhada para quem não aceita menos que a excelência.</p>
-            </div>
+html { scroll-behavior: smooth; }
 
-            <div class="card-info-produto">
-                <h3>A <span class="destaque-vermelho">Solução Definitiva</span></h3>
-                <p class="legenda">Painel Full HS</p>
-                <p>O Painel Full HS é a solução definitiva para quem busca apenas a mira perfeita que gruda na cabeça do inimigo.</p>
-            </div>
-        </div>
-    </section>
+body {
+    background-color: var(--preto);
+    color: var(--branco);
+    overflow-x: hidden;
+    text-align: center;
+}
 
-    <section class="secao-faq">
-        <div class="container animar-entrada">
-            <h2 class="titulo-secao">Dúvidas <span class="destaque-vermelho">Frequentes</span></h2>
-            <div class="grid-duplo">
-                <div class="card-faq">
-                    <h3>Como recebo o acesso?</h3>
-                    <p>O acesso é imediato logo após a confirmação do pagamento. Você receberá tudo no seu e-mail cadastrado.</p>
-                </div>
-                <div class="card-faq">
-                    <h3>Eu posso sofrer Ban?</h3>
-                    <p>NÃO! O painel full hs e todos seus arquivos são totalmente seguros e não possuem risco de ban (Anti-ban atualizado).</p>
-                </div>
-            </div>
-        </div>
-    </section>
+/* --- 2. DESTAQUES E ANIMAÇÕES --- */
+.destaque-vermelho {
+    color: var(--vermelho);
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
 
-    <section class="secao-visao">
-        <div class="container animar-entrada">
-            <div class="card-visao">
-                <h2 class="titulo-secao-interno">EFEITO <span class="destaque-vermelho">VISÃO-SPAM</span></h2>
-                
-                <div class="container-imagem-visao">
-                    <span class="legenda-flutuante pos-topo-esq">Rastreio Ativo</span>
-                    <span class="legenda-flutuante pos-baixo-dir">Wallhack 3D</span>
-                    <img src="/photos/boneco.jpeg" alt="Demonstração Visão Spam" class="img-demonstracao">
-                </div>
+.animar-entrada {
+    animation: fadeIn 1.2s ease-out forwards;
+}
 
-                <p>É a projeção em 3D que permite visualizar o alvo com precisão total, mesmo estando atrás de paredes ou obstáculos.</p>
-            </div>
-        </div>
-    </section>
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-    <section class="secao-produtos" id="produtos">
-        <div class="container">
-            <h2 class="titulo-secao">Escolha o seu <span class="destaque-vermelho">Plano</span></h2>
-            
-            <div class="grid-produtos">
-                <div class="card-produto destaque animar-entrada">
-                    <div class="tag-topo">MAIS VENDIDO</div>
-                    <i class="fa-brands fa-android icone-produto"></i>
-                    <h3>Painel Mensal <span class="destaque-vermelho">Android</span></h3>
-                    <ul class="lista-caracteristicas">
-                        <li><i class="fa-solid fa-check"></i> APK Painel Full HS</li>
-                        <li><i class="fa-solid fa-check"></i> Acesso por 30 dias</li>
-                        <li><i class="fa-solid fa-check"></i> Mira 100% Automática</li>
-                    </ul>
-                    <p class="preco">R$ 23,34</p>
-                    <a href="https://go.perfectpay.com.br/PPU38CQ57DS" class="botao-compra">COMPRAR AGORA</a>
-                </div>
+/* --- 3. SEÇÕES E EFEITO VIGNETTE (NITIDEZ) --- */
+section {
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed;
+    /* Efeito de sombra interna (Vignette) nas bordas do site */
+    box-shadow: inset 0 0 15vw rgba(0,0,0,1);
+    position: relative;
+    image-rendering: -webkit-optimize-contrast;
+}
 
-                <div class="card-produto destaque animar-entrada">
-                    <div class="tag-topo">RECOMENDADO</div>
-                    <i class="fa-brands fa-android icone-produto"></i>
-                    <h3>Painel Permanente <span class="destaque-vermelho">Android</span></h3>
-                    <ul class="lista-caracteristicas">
-                        <li><i class="fa-solid fa-check"></i> APK Painel Full HS</li>
-                        <li><i class="fa-solid fa-check"></i> Acesso Vitalício</li>
-                        <li><i class="fa-solid fa-check"></i> Mira 100% Automática</li>
-                    </ul>
-                    <p class="preco">R$ 28,78</p>
-                    <a href="https://go.perfectpay.com.br/PPU38CQ57F4" class="botao-compra">COMPRAR AGORA</a>
-                </div>
+.container {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-                <div class="card-produto animar-entrada">
-                    <i class="fa-brands fa-apple icone-produto"></i>
-                    <h3>Painel Mensal <span class="destaque-vermelho">IOS</span></h3>
-                    <ul class="lista-caracteristicas">
-                        <li><i class="fa-solid fa-check"></i> Arquivos Full HS IOS</li>
-                        <li><i class="fa-solid fa-check"></i> Acesso por 30 dias</li>
-                        <li><i class="fa-solid fa-check"></i> Mira 100% Automática</li>
-                    </ul>
-                    <p class="preco">R$ 23,34</p>
-                    <a href="https://go.perfectpay.com.br/PPU38CQ57FH" class="botao-compra">COMPRAR AGORA</a>
-                </div>
+/* FUNDOS PADRONIZADOS */
+.secao-hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.85)), url('photos/principal.jpg'); }
+.secao-sugestao { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('photos/teste.jpg'); }
+.secao-faq { background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('photos/2473826fa39831d417ac502fdb8ffb28.jpg'); }
+.secao-visao { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('photos/images.jpg'); }
 
-                <div class="card-produto animar-entrada">
-                    <i class="fa-brands fa-apple icone-produto"></i>
-                    <h3>Painel Permanente <span class="destaque-vermelho">IOS</span></h3>
-                    <ul class="lista-caracteristicas">
-                        <li><i class="fa-solid fa-check"></i> Arquivos Full HS IOS</li>
-                        <li><i class="fa-solid fa-check"></i> Acesso Vitalício</li>
-                        <li><i class="fa-solid fa-check"></i> Mira 100% Automática</li>
-                    </ul>
-                    <p class="preco">R$ 28,78</p>
-                    <a href="https://go.perfectpay.com.br/PPU38CQ57G5" class="botao-compra">COMPRAR AGORA</a>
-                </div>
-            </div>
-        </div>
-    </section>
+/* --- 4. LOGO E CABEÇALHO --- */
+.wrapper-logo { margin-bottom: 30px; }
+.logo-hero {
+    width: 380px; max-width: 85%; height: auto;
+    filter: drop-shadow(0 0 25px var(--vermelho-neon));
+}
 
-    <section class="secao-garantia">
-        <div class="container animar-entrada">
-            <i class="fa-solid fa-shield-halved icone-garantia"></i>
-            <h2 class="titulo-secao"><span class="destaque-vermelho">Risco Zero</span></h2>
-            <p>Você tem <strong>7 dias de garantia incondicional</strong>. Satisfação total ou seu dinheiro de volta.</p>
-        </div>
-    </section>
+.titulo-principal { font-size: clamp(2.2rem, 8vw, 3.5rem); font-weight: 900; text-transform: uppercase; line-height: 1.1; margin-bottom: 20px; }
+.subtitulo { color: #ccc; max-width: 750px; margin-bottom: 40px; font-size: 1.1rem; }
 
-    <footer>
-        <p>&copy; 2025 Pares Xiter. Todos os direitos reservados.</p>
-    </footer>
+/* --- 5. GRID DE PRODUTOS (2 NO PC / 1 NO CELULAR) --- */
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    width: 100%;
+    margin-top: 50px;
+}
 
-</body>
-</html>
+.card-produto {
+    background: var(--cinza-card);
+    padding: 50px 30px;
+    border-radius: 45px; /* Bordas bem redondas */
+    border: 1px solid #222;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-produto:hover {
+    border-color: var(--vermelho);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 40px rgba(255, 0, 0, 0.2);
+}
+
+/* --- 6. SEÇÃO VISÃO-SPAM COM LEGENDAS FLUTUANTES --- */
+.card-visao {
+    background: var(--cinza-card);
+    padding: 40px;
+    border-radius: 40px;
+    border: 1px solid #222;
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.container-imagem-visao {
+    width: 100%;
+    max-width: 700px;
+    position: relative; /* Necessário para as legendas flutuantes */
+    border-radius: 25px;
+    overflow: hidden;
+    border: 2px solid var(--vermelho);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+}
+
+.img-demonstracao {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Estilo das Legendas Flutuantes */
+.legenda-flutuante {
+    position: absolute;
+    background: rgba(255, 0, 0, 0.85);
+    color: white;
+    padding: 8px 15px;
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    pointer-events: none;
+    letter-spacing: 1px;
+    animation: pulse-brilho 2s infinite;
+}
+
+.pos-topo-esq { top: 20px; left: 20px; }
+.pos-baixo-dir { bottom: 20px; right: 20px; }
+
+@keyframes pulse-brilho {
+    0% { opacity: 0.8; box-shadow: 0 0 5px var(--vermelho); }
+    50% { opacity: 1; box-shadow: 0 0 15px var(--vermelho); }
+    100% { opacity: 0.8; box-shadow: 0 0 5px var(--vermelho); }
+}
+
+/* --- 7. FAQ E OUTROS CARDS --- */
+.caixa-pergunta {
+    border: 2px solid var(--vermelho);
+    padding: 40px; border-radius: 30px;
+    background: rgba(0,0,0,0.85); width: 100%; max-width: 850px; margin-bottom: 40px;
+}
+
+.card-faq {
+    background: var(--cinza-card);
+    padding: 30px;
+    border-radius: 25px;
+    border: 1px solid #222;
+    text-align: left;
+    border-left: 5px solid var(--vermelho);
+}
+
+.grid-duplo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+/* --- 8. ÍCONES E BOTÕES --- */
+.icone-produto { font-size: 4rem; margin-bottom: 20px; }
+.fa-android { color: #3DDC84; }
+.fa-apple { color: #fff; }
+
+.lista-caracteristicas { list-style: none; text-align: left; margin: 25px 0; display: inline-block; }
+.lista-caracteristicas li { margin-bottom: 12px; color: #bbb; font-size: 0.95rem; }
+.lista-caracteristicas i { color: var(--vermelho); margin-right: 10px; }
+
+.preco { font-size: 3rem; font-weight: 900; margin-bottom: 30px; letter-spacing: -1px; }
+
+.botao-compra {
+    display: block; background: var(--vermelho); color: white;
+    text-decoration: none; padding: 20px; border-radius: 50px;
+    font-weight: 900; text-transform: uppercase;
+    animation: pulse 2s infinite;
+    cursor: pointer;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(255, 0, 0, 0); }
+    100% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+.icone-link-hero { font-size: 3rem; color: var(--vermelho); animation: bounce 2s infinite; margin-top: 30px; display: block; }
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-15px);} }
+
+.tag-topo { position: absolute; top: 0; right: 0; background: var(--vermelho); padding: 10px 20px; font-size: 0.75rem; font-weight: 900; border-bottom-left-radius: 25px; }
+
+/* --- 9. RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+    .grid-produtos { grid-template-columns: 1fr; gap: 40px; }
+    section { background-attachment: scroll !important; padding: 60px 0; }
+    .titulo-principal { font-size: 2.3rem; }
+    .card-produto { border-radius: 35px; }
+    .card-visao { padding: 25px; }
+    .legenda-flutuante { font-size: 0.6rem; padding: 5px 10px; }
+}
+
+footer { padding: 60px; border-top: 1px solid #111; color: #444; font-size: 0.8rem; background: #000; }
