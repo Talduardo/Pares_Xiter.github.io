@@ -63,7 +63,7 @@ section {
 }
 
 /* FUNDOS PADRONIZADOS */
-.secao-hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.85)), url('photos/wallpapers-de-free-fire-em-4k-para-pc-e-celular-6.jpg'); }
+.secao-hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.85)), url('photos/principal.jpg'); }
 .secao-sugestao { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('photos/teste.jpg'); }
 .secao-faq { background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('photos/2473826fa39831d417ac502fdb8ffb28.jpg'); }
 .secao-visao { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('photos/images.jpg'); }
@@ -220,5 +220,6 @@ section {
     .card-visao { padding: 25px; }
     .legenda-flutuante { font-size: 0.6rem; padding: 5px 10px; }
 }
+
 
 footer { padding: 60px; border-top: 1px solid #111; color: #444; font-size: 0.8rem; background: #000; }
