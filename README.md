@@ -47,7 +47,7 @@ Este repositório contém o **front-end de uma landing page** desenvolvida para 
 
 ---
 
-## 📈 Roadmap
+## 📈 Roadmap:
 - [ ] Adicionar integração com formulário de contato.
 
 - [ ] Implementar rastreamento de métricas (Google Analytics).
